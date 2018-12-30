@@ -1,2 +1,3 @@
 # OWL-prediction
-Predicts OWL games with a Bayesian model
+This program is used to predict Overwatch League games with a Bayesian model.
+Details of the model is written in writeup/writeup.pdf.
