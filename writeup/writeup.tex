@@ -1,0 +1,96 @@
+\documentclass[a4paper, 12pt]{article}
+\title{Overwatch}
+\date{\today}
+
+\newcommand{\BVec}[1]{\mathbf{#1}}
+\newcommand{\Norm}[1]{\lVert #1 \rVert}
+
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{wasysym}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\usepackage{amsthm}
+\usepackage[boxed]{algorithm2e}
+
+
+\usepackage{tikz}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+
+\lstset{
+basicstyle=\footnotesize,
+numbers=left,
+frame=single,
+breaklines=true
+}
+
+%\newcommand{norm}[1]{\lVert #1 \rVert}
+
+%--------Custom Commands------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Smooth}[0]{\textit{C}^{\infty}}
+%\newcommand{\Smooth}[1]{\textit{C}^{\infty}(#1)}
+%\newcommand{\Smooth}[2]{\textit{C}^{\infty}(#1, #2)}
+\newcommand{\Vect}[0]{\textit{Vect}}
+\newcommand{\End}[0]{\text{End}}
+%\newcommand{\Vect}[1]{\textit{Vect}(#1)}
+\newcommand{\Alt}[0]{\text{Alt}}
+\newcommand{\InnerProd}[2]{\langle #1 , #2\rangle}
+\newcommand{\proj}[0]{\text{proj}}
+\newcommand{\Ad}[0]{\text{Ad}}
+\newcommand{\GL}[0]{\text{GL}}
+\newcommand{\gl}[0]{\text{gl}}
+
+
+\begin{document}
+
+In this model,
+the strength of teams are represented by a single real number.
+Suppose team \(A\) and team \(B\) have strength \(s_A\) and \(s_B\) respectively, 
+then the probability of team \(A\) winning over team \(B\) is assumed to be:
+\begin{align*}
+  w(s_A, s_B) &:= \frac{1}{1+s_B/s_A}
+\end{align*}
+Since there are \(12\) teams, 
+team strength is a vector \(\vec{s}\) in \(\R^{12}\).
+We represent our uncertainty in team strength by the prior distribution:
+\begin{align*}
+  p(\vec{s}) &:= 1 \text{ on } \Omega\\
+  \Omega &:= [0,1]^{12}
+\end{align*}
+(This prior was chosen because it is scale invariant in case we )
+In the event \(W_{AB}\) of team \(A\) winning over team \(B\),
+we have:
+\begin{align*}
+  p(\vec{s} | W_{AB}) &\propto p(W_{AB} | \vec{s}) p(\vec{s})\\
+                      &\propto w(s_A, s_B) p(\vec{s})
+\end{align*}
+So for a total of \(n\) matches,
+with the \(i\)-th one being a match bewteen team \(u_i\) and \(v_i\) ending in \(k_i\) - \(l_i\),
+is:
+\begin{align*}
+  p(\vec{s} | \text{match results}) &\propto \prod_{i=1}^{n} w(s_{u_i}, s_{v_i})^{k_i} w(s_{v_i}, s_{u_i})^{l_i} p(\vec{s})
+\end{align*}
+For example, for NYXL 3-2 LAG,
+we have:
+\begin{align*}
+  p(\vec{s} | \text{match results}) &\propto (\frac{1}{1+s_{LAG}/s_{NYXL}})^3(\frac{1}{1+s_{NYXL}/s_{LAG}})^2 p(\vec{s})
+\end{align*}
+The expected strength for team \(A\) is thus:
+\begin{align*}
+  \expval{s_A} &= \frac{\int_{\Omega}\dd\vec{r} s_A\prod_{i=1}^{n} w(s_{u_i}, s_{v_i})^{k_i} w(s_{v_i}, s_{u_i})^{l_i}}{\int_{\Omega}\dd\vec{r}\prod_{i=1}^{n} w(s_{u_i}, s_{v_i})^{k_i} w(s_{v_i}, s_{u_i})^{l_i}}
+\end{align*}
+The map-winrate for team \(A\) versus \(B\) is:
+\begin{align*}
+  \expval{w(s_A, s_B)} &= \frac{\int_{\Omega}\dd\vec{r}w(s_A, s_B)\prod_{i=1}^{n} w(s_{u_i}, s_{v_i})^{k_i} w(s_{v_i}, s_{u_i})^{l_i}}{\int_{\Omega}\dd\vec{r}\prod_{i=1}^{n} w(s_{u_i}, s_{v_i})^{k_i} w(s_{v_i}, s_{u_i})^{l_i}}
+\end{align*}
+
+
+\end{document}

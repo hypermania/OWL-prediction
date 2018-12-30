@@ -1,0 +1,91 @@
+A Bayesian model for ranking teams and a Monte Carlo simulation of stage playoff chances
+
+
+Out of academic interest I considered the problem of using the Bradley-Terry model
+to estimate the relative strength of the teams in OWL.
+It turned out that the team strengths can be written in a closed formula,
+and the results can be obtained via numerical integration.
+Upon some coding I was able to obtain the strengths of the 12 teams
+given only the match results of stage 3;
+the results, as shown below,
+are probably closer to what we expect the real strength of teams are.
+
+Like the ELO system,
+this model weighs matches against different opponents differently.
+Wins against stronger teams are more significant and would increase the strength rating by a larger amount,
+and vice versa.
+What this model does differently is that when it takes in the result of a new match,
+the strength of ALL teams are shifted accordingly.
+This is in no way surprising:
+if team A wins team B by 3-2 and and then team A loses to a very strong team (e.g. NYXL) by 2-3,
+that team B was able to take team A to 5 maps would seem more impressive,
+as we now know team A is a strong team that can take the juggernaut to 5 maps.
+For an actual example,
+although LA Valiant was ranked at NO.1 before the Houston-Dallas match today,
+it dropped to NO.2 below NYXL after that match.
+Since Houston was able to 3-0 Dallas while LA Valiant was only able to make it a 2-1,
+LA Valiant seemed a bit less impressive in comparison.
+
+There are, of course,
+many shortcomings to this model,
+such as its inability to account for change in team strength over time,
+choice of roster, team strength on specific maps, level of preparation,
+playstyles that counter each other, etc.
+But since we don't have too many match results to work with,
+this is a fairly robust model we can settle with for now.
+
+[more details on the model](http://docdro.id/10U2boS)
+
+
+ Team | Strength
+---------|----------
+NYE|0.794759
+LAV|0.793881
+BOS|0.771623
+LAG|0.592349
+PHI|0.589682
+HOU|0.554635
+LDN|0.545030
+SFS|0.533645
+SEO|0.505053
+FLA|0.234532
+DAL|0.222617
+SHD|0.103564
+
+With the team strength listed above,
+I also did a Monte Carlo simulation for the playoff probabilities for stage 3.
+The probabilities for entering stage 3 playoff are listed below.
+
+ Team | Stage 3 Playoff Probability
+---------|----------
+BOS: 0.997843
+NYE: 0.994207
+LAV: 0.972150
+SFS: 0.335334
+PHI: 0.266565
+LAG: 0.234127
+HOU: 0.083109
+SEO: 0.070869
+LDN: 0.045795
+DAL: 0.000000
+FLA: 0.000000
+SHD: 0.000000
+
+
+Some take aways from the results:
+
+* NYE, LAV and BOS are the 1-st tier teams of stage 3, with strength quite close to each other at around 0.78. 
+LAG, PHI, HOU, LDN, SFS and SEO seem to be at the 2-nd tier, with strength ranging from 0.5 to 0.6,
+but they all have at least 30% chance to win over the 1-st tier teams,
+so none of them are to be underestimated.
+DAL and FLA are at the 3-rd tier, with strengths around 0.2.
+It is not particular likely for them to win over any of the higher tier teams.
+Sadly, from the numbers I can only infer that SHD is at the 4-th tier,
+not likely to win over any other team just yet.
+
+* NYE, LAV and BOS pretty much have their stage playoff spots locked up. Unless they screw up the rest of their matches horribly we will see them in the playoffs.
+
+* SFS, PHI and LAG are the contenders for that 4-th spot in the stage playoff. 
+The next two weeks are going to be rough on these teams;
+there is no match in which they can afford to underperform
+since at this point every map win can give one of these teams the edge over another.

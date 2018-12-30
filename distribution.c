@@ -1,0 +1,141 @@
+#include "distribution.h"
+
+double p(double SEO, double LDN, double NYE, double LAV, double LAG, double HOU,
+	 double BOS, double PHI, double SFS, double DAL, double FLA, double SHD){
+  
+  return
+    //(1 / (SEO * LDN * NYE * LAV * LAG * HOU * BOS * PHI * SFS * DAL * FLA * SHD)) *
+
+    /*
+    // Stage 1 Week 1
+    LIKELIHOOD_0_4(SFS, LAV) *
+    LIKELIHOOD_0_4(SHD, LAG) *
+    LIKELIHOOD_1_2(DAL, SEO) *
+
+    LIKELIHOOD_3_1(LDN, FLA) *
+    LIKELIHOOD_3_2(PHI, HOU) *
+    LIKELIHOOD_1_3(BOS, NYE) *
+    
+    LIKELIHOOD_3_0(LAV, DAL) *
+    LIKELIHOOD_0_4(FLA, BOS) *
+    LIKELIHOOD_3_1(SFS, SHD) *
+
+    LIKELIHOOD_4_0(LDN, PHI) *
+    LIKELIHOOD_3_1(NYE, HOU) *
+    LIKELIHOOD_4_0(SEO, LAG) *
+
+
+    // Stage 1 Week 2
+    LIKELIHOOD_1_2(SFS, PHI) *
+    LIKELIHOOD_0_4(FLA, SEO) *
+    LIKELIHOOD_4_0(HOU, SHD) *
+
+    LIKELIHOOD_0_4(DAL, HOU) *
+    LIKELIHOOD_3_0(NYE, LAV) *
+    LIKELIHOOD_2_3(PHI, LAG) *
+
+    LIKELIHOOD_4_0(SEO, BOS) *
+    LIKELIHOOD_0_4(SHD, FLA) *
+    LIKELIHOOD_3_1(LDN, DAL) *
+
+    LIKELIHOOD_2_3(LAV, LDN) *
+    LIKELIHOOD_0_4(LAG, NYE) *
+    LIKELIHOOD_2_3(BOS, SFS) *
+
+    
+    // Stage 1 Week 3
+    LIKELIHOOD_1_3(SFS, LDN) *
+    LIKELIHOOD_1_3(SHD, SEO) *
+    LIKELIHOOD_2_3(LAG, LAV) *
+    
+    LIKELIHOOD_3_2(BOS, LDN) *
+    LIKELIHOOD_3_2(PHI, NYE) *
+    LIKELIHOOD_4_0(HOU, FLA) *
+
+    LIKELIHOOD_2_3(SEO, NYE) *
+    LIKELIHOOD_2_3(SHD, PHI) *
+    LIKELIHOOD_3_0(DAL, SFS) *
+    
+    LIKELIHOOD_2_3(DAL, BOS) *
+    LIKELIHOOD_3_1(LAV, FLA) *
+    LIKELIHOOD_0_4(LAG, HOU) *
+
+
+    // Stage 1 Week 4
+    LIKELIHOOD_4_0(LAV, PHI) *
+    LIKELIHOOD_1_3(FLA, LAG) *
+    LIKELIHOOD_3_1(HOU, SFS) *
+
+    LIKELIHOOD_4_0(PHI, DAL) *
+    LIKELIHOOD_4_0(NYE, SHD) *
+    LIKELIHOOD_4_0(LDN, SEO) *
+
+    LIKELIHOOD_4_0(SFS, FLA) *
+    LIKELIHOOD_3_2(SEO, HOU) *
+    LIKELIHOOD_0_4(LAG, BOS) *
+
+    LIKELIHOOD_0_4(SHD, LDN) *
+    LIKELIHOOD_1_3(DAL, NYE) *
+    LIKELIHOOD_4_0(BOS, LAV) *
+    */
+
+    // Stage 1 Week 5
+    LIKELIHOOD_2_3(SHD, DAL) *
+    LIKELIHOOD_1_3(SFS, LAG) *
+    LIKELIHOOD_3_0(LAV, SEO) *
+    
+    LIKELIHOOD_0_4(PHI, BOS) *
+    LIKELIHOOD_0_3(FLA, NYE) *
+    LIKELIHOOD_1_3(LDN, HOU) *
+
+    LIKELIHOOD_1_3(LAG, DAL) *
+    LIKELIHOOD_3_2(SEO, SFS) *
+    LIKELIHOOD_4_0(LAV, SHD) *
+      
+    LIKELIHOOD_3_2(NYE, LDN) *
+    LIKELIHOOD_3_2(HOU, BOS) *
+    LIKELIHOOD_2_3(FLA, PHI) *
+
+
+    // Stage 1 Playoff
+    LIKELIHOOD_3_1(LDN, HOU) *
+    LIKELIHOOD_3_2(LDN, NYE) *
+
+
+    // Stage 2 Week 1
+    LIKELIHOOD_4_0(SEO, LAV) *
+    LIKELIHOOD_3_1(DAL, SHD) *
+    LIKELIHOOD_4_0(LAG, SFS) *
+
+    LIKELIHOOD_3_2(HOU, LDN) *
+    LIKELIHOOD_3_1(NYE, FLA) *
+    LIKELIHOOD_0_4(BOS, PHI) *
+
+    LIKELIHOOD_3_2(LDN, NYE) *
+    LIKELIHOOD_3_1(DAL, LAG) *
+    LIKELIHOOD_1_3(SFS, SEO) *
+
+    LIKELIHOOD_4_0(PHI, FLA) *
+    LIKELIHOOD_4_0(HOU, BOS) *
+    LIKELIHOOD_3_0(LAV, SHD) *
+
+    // Stage 2 Week 2
+    LIKELIHOOD_3_1(SEO, DAL) *
+    LIKELIHOOD_3_1(LAV, SFS) *
+    LIKELIHOOD_4_0(LAG, SHD) *
+
+    LIKELIHOOD_1_3(FLA, HOU) *
+    LIKELIHOOD_2_3(HOU, PHI) *
+    LIKELIHOOD_4_0(NYE, BOS) *
+
+    LIKELIHOOD_4_0(BOS, FLA) *
+    LIKELIHOOD_1_3(LAG, SEO) *
+    LIKELIHOOD_1_3(DAL, LAV) *
+
+    LIKELIHOOD_0_4(PHI, LDN) *
+    LIKELIHOOD_0_4(HOU, NYE) *
+    LIKELIHOOD_0_4(SHD, SFS);
+			    
+
+}
+
